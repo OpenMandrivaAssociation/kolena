@@ -1,6 +1,6 @@
 Name:          kolena
 Version:       0.1.1
-Release:       %mkrel 1
+Release:       2
 Summary:       Kolena is a KDE wrapper around the Olena image library which extracts text from images
 Group:         Networking/File transfer
 License:       GPLv2+
