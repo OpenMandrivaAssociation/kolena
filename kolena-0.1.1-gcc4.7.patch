@@ -1,0 +1,45 @@
+diff -urN kolena-0.1.1/mln/core/dpoints_pixter.hh kolena-0.1.1-patched/mln/core/dpoints_pixter.hh
+--- kolena-0.1.1/mln/core/dpoints_pixter.hh	2011-03-29 22:53:16.000000000 +1100
++++ kolena-0.1.1-patched/mln/core/dpoints_pixter.hh	2012-10-11 12:50:36.463095455 +1100
+@@ -286,7 +286,7 @@
+     if (is_valid())
+       {
+ 	if (p_ref_)
+-	  this->value_ptr_ = & image_(*p_ref_) + *i_;
++	  this->value_ptr_ = & this->image_(*p_ref_) + *i_;
+ 	else
+ 	  this->value_ptr_ = * value_ref_ + *i_;
+       }
+diff -urN kolena-0.1.1/mln/data/fill.hh kolena-0.1.1-patched/mln/data/fill.hh
+--- kolena-0.1.1/mln/data/fill.hh	2011-03-29 22:53:16.000000000 +1100
++++ kolena-0.1.1-patched/mln/data/fill.hh	2012-10-11 12:51:15.968093716 +1100
+@@ -78,14 +78,6 @@
+ 	// FIXME: check for ambiguities...
+       }
+ 
+-      // dispatch
+-
+-      template <typename I, typename D>
+-      void fill_dispatch(Image<I>& ima, const D& data)
+-      {
+-	fill_dispatch_overload(exact(ima), exact(data));
+-      }
+-
+       // dispatch_overload
+ 
+       template <typename I>
+@@ -127,6 +119,14 @@
+ 	  ima(p) = arr[i++];
+       }
+ 
++      // dispatch
++
++      template <typename I, typename D>
++      void fill_dispatch(Image<I>& ima, const D& data)
++      {
++	fill_dispatch_overload(exact(ima), exact(data));
++      }
++
+     } // end of namespace mln::data::internal
+ 
+ 

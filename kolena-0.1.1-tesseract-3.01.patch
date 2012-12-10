@@ -1,0 +1,33 @@
+diff -urN kolena-0.1.1/cmake/modules/FindTesseract.cmake kolena-0.1.1-patched/cmake/modules/FindTesseract.cmake
+--- kolena-0.1.1/cmake/modules/FindTesseract.cmake	2011-03-29 22:53:16.000000000 +1100
++++ kolena-0.1.1-patched/cmake/modules/FindTesseract.cmake	2012-10-11 12:57:59.009568806 +1100
+@@ -18,7 +18,7 @@
+ 
+ FIND_PATH(TESSERACT_INCLUDE_DIR tesseract/baseapi.h)
+ 
+-FIND_LIBRARY(TESSERACT_LIBRARY NAMES tesseract_api)
++FIND_LIBRARY(TESSERACT_LIBRARY NAMES tesseract)
+ 
+ if(TESSERACT_LIBRARY)
+   find_package(TIFF)
+diff -urN kolena-0.1.1/scribo/text/recognition.hh kolena-0.1.1-patched/scribo/text/recognition.hh
+--- kolena-0.1.1/scribo/text/recognition.hh	2011-03-29 22:53:16.000000000 +1100
++++ kolena-0.1.1-patched/scribo/text/recognition.hh	2012-10-11 12:58:06.473568727 +1100
+@@ -112,7 +112,7 @@
+       TessBaseAPI::InitWithLanguage(NULL, NULL, language, NULL, false, 0, NULL);
+ #  else // HAVE_TESSERACT_3
+       tesseract::TessBaseAPI tess;
+-      if (tess.Init(NULL, language, NULL, 0, false) == -1)
++      if (tess.Init(NULL, language) == -1)
+       {
+ 	std::cout << "Error: cannot initialize tesseract!" << std::endl;
+ 	abort();
+@@ -220,7 +220,7 @@
+       TessBaseAPI::InitWithLanguage(NULL, NULL, language, NULL, false, 0, NULL);
+ #  else // HAVE_TESSERACT_3
+       tesseract::TessBaseAPI tess;
+-      if (tess.Init(NULL, language, NULL, 0, false) == -1)
++      if (tess.Init(NULL, language) == -1)
+       {
+ 	std::cout << "Error: cannot initialize tesseract!" << std::endl;
+ 	abort();
