@@ -4,7 +4,7 @@ Release:	3
 Summary:	A KDE wrapper around the Olena image library which extracts text from images
 Group:		Networking/File transfer
 License:	GPLv2+
-Url:		http://quickgit.kde.org/?p=kolena.git
+Url:		https://quickgit.kde.org/?p=kolena.git
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		kolena-0.1.1-tesseract-3.01.patch
 Patch1:		kolena-0.1.1-gcc4.7.patch
