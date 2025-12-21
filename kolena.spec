@@ -8,6 +8,7 @@ Url:		https://quickgit.kde.org/?p=kolena.git
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		kolena-0.1.1-tesseract-3.01.patch
 Patch1:		kolena-0.1.1-gcc4.7.patch
+BuildRequires:	make
 BuildRequires:	kdelibs4-devel
 BuildRequires:	tesseract-devel
 
